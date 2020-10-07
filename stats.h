@@ -22,20 +22,93 @@
 #ifndef __STATS_H__
 #define __STATS_H__
 
-/* Add Your Declarations and Function Comments here */ 
+/* Declarations and Function Comments */ 
 
-/**
- * @brief <Add Brief Description of Function Here>
+
+/*
+ * @brief Prints the statistics of an array
  *
- * <Add Extended Description Here>
+ * Prints the value of the maximum, minimum, the mean and the median of an array of data.
  *
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
+ * @param unsigned char *array Pointer that takes the direction of the data array and thus, its values.
+ * @param unsigned int n_elements Number of the data array's elements.
  *
- * @return <Add Return Informaiton here>
+ * @return It doesn't return any value, just prints the statistics of the array
  */
+void print_statistics(unsigned char *array, unsigned int n_elements);
+
+/*
+ * @brief <Prints the data of an array to the screen>
+ *
+ * Using the printf function, it displays the values contained in an array of data in a nice formatted way.
+ *
+ * @param unsigned char *array Pointer that takes the direction of the data array and thus, its values.
+ * @param unsigned int n_elements Number of the data array's elements.
+ *
+ * @return It doesn't return any value, just prints the values of the array
+ */
+void print_array(unsigned char *array, unsigned int n_elements);
+
+/*
+ * @brief Computes the median value of an array
+ *
+ * From a sorted array of data, the median is obtained taking into account the two possible cases, an even or an odd number of elements.
+ *
+ * @param unsigned char *array Pointer that takes the direction of the data array and thus, its values.
+ * @param unsigned int n_elements Number of the data array's elements.
+ *
+ * @return Returns the median value of the array.
+ */
+unsigned char find_median(unsigned char *array, unsigned int n_elements);
+
+/*
+ * @brief Computes the mean value of an array
+ *
+ * From an array of data, the mean value is calculated adding all values of the array and dividing it by the number of elements
+ *
+ * @param unsigned char *array Pointer that takes the direction of the data array and thus, its values.
+ * @param unsigned int n_elements Number of the data array's elements.
+ *
+ * @return Returns the mean value of an array
+ */
+unsigned char find_median(unsigned char *array, unsigned int n_elements);
+
+/*
+ * @brief Selects the maximum value of an array of data
+ *
+ * From a sorted array of data, takes the maximum value and returns it.
+ *
+ * @param unsigned char *array Pointer that takes the direction of the data array and thus, its values.
+ * @param unsigned int n_elements Number of the data array's elements.
+ *
+ * @return Returns the maximum value of an array
+ */
+unsigned char find_maximum(unsigned char *array, unsigned int n_elements);
+
+/*
+ * @brief Selects the maximum value of an array of data
+ *
+ * From a sorted array of data, takes the minimum value and returns it.
+ *
+ * @param unsigned char *array Pointer that takes the direction of the data array and thus, its values.
+ * @param unsigned int n_elements Number of the data array's elements.
+ *
+ * @return Returns the minimum value of an array
+ */
+unsigned char find_minimum(unsigned char *array, unsigned int n_elements);
+
+/*
+ * @brief Sorts the array from largest to smallest
+ *
+ * The array of n elements is sorted by putting its largest value in the zeroth element while the smallest value is put in the last position
+ * of the array, or the (n-1) position,The data is sorted using the beble algorithm.
+ *
+ * @param unsigned char *array Pointer that takes the direction of the data array and thus, its values.
+ * @param unsigned int n_elements Number of the data array's elements.
+ *
+ * @return A pointer array sorted to from the biggest value to the smallest.
+ */
+unsigned char *sort_array(unsigned char *array, unsigned int n_elements);
 
 
 #endif /* __STATS_H__ */

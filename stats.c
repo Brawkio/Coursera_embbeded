@@ -29,42 +29,96 @@
 /* Size of the Data Set */
 #define SIZE (40)
 
-void main() {
+void main() 
+{
 
   unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
                               114, 88,   45,  76, 123,  87,  25,  23,
                               200, 122, 150, 90,   92,  87, 177, 244,
                               201,   6,  12,  60,   8,   2,   5,  67,
                                 7,  87, 250, 230,  99,   3, 100,  90};
-	     }
+	     
+unsigned char *eq;
+eq=&test[0];
+print_array(eq,SIZE);
+eq=sort_array(eq, SIZE);
+print_array(eq,SIZE);
 
-  /* Other Variable Declarations Go Here */
+}
+ 
 
 
 
   /* Statistics and Printing Functions Go Here */
-void print_statistics(unsigned char *array, unsigned int n_elements);
-{
-}
-void print_array(unsigned char *array, unsigned int n_elements);
-{
-}
-unsigned char find_median(unsigned char *array, unsigned int n_elements);
-{
-}
-unsigned char find_median(unsigned char *array, unsigned int n_elements);
-{
-}
-unsigned char find_maximum(unsigned char *array, unsigned int n_elements);
-{
-}
-unsigned char find_minimum(unsigned char *array, unsigned int n_elements);
-{
-}
-unsigned char *sort_array(unsigned char *array, unsigned int n_elements);
+void print_statistics(unsigned char *array, unsigned int n_elements)
 {
 }
 
+void print_array(unsigned char *array, unsigned int n_elements)
+{
+printf("\n\t|The array of %d elements is:|\n",n_elements);
+for(int i=0; i<n_elements; i++)
+{
+ printf("__");
+}
+printf("\n");
+for(int i=0; i<n_elements; i++)
+{
+ printf("| %d ", *array);
+ array++;
+if(i==(.3*n_elements))
+{
+printf("|\n");
+}
+else if(i==.6*n_elements)
+{
+printf("|\n");
+}
+else if(i==n_elements-1)
+{
+printf("|\n");
+}
+}
 
+for(int i=0; i<n_elements; i++)
+{
+ printf("__");
+}
+printf("\n\n");
+}
+
+unsigned char find_median(unsigned char *array, unsigned int n_elements)
+{
+}
+unsigned char find_mean(unsigned char *array, unsigned int n_elements)
+{
+}
+unsigned char find_maximum(unsigned char *array, unsigned int n_elements)
+{
+}
+unsigned char find_minimum(unsigned char *array, unsigned int n_elements)
+{
+}
+
+unsigned char *sort_array(unsigned char *array, unsigned int n_elements)
+{
+unsigned char mem_aux;
+int i, j;
+for(i=0; i<n_elements; i++)
+{
+ for(j=i+1; j<n_elements; j++)
+ {
+	if(*(array+j)>*(array+i))
+	{
+	mem_aux=*(array+i);
+	*(array+i)=*(array+j);
+	*(array+j)=mem_aux;
+	}
+ }
+}
+return array;
+}
 
 /* Add other Implementation File Code Here */
+
+

@@ -71,7 +71,7 @@ unsigned char find_median(unsigned char *array, unsigned int n_elements);
  *
  * @return Returns the mean value of an array
  */
-unsigned char find_median(unsigned char *array, unsigned int n_elements);
+unsigned char find_mean(unsigned char *array, unsigned int n_elements);
 
 /*
  * @brief Selects the maximum value of an array of data

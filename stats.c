@@ -43,7 +43,11 @@ eq=&test[0];
 print_array(eq,SIZE);
 eq=sort_array(eq, SIZE);
 print_array(eq,SIZE);
-
+float med, mean;
+med=find_median(eq,SIZE);
+printf("\nThe median is %3.2f\n",med);
+mean=find_mean(eq,SIZE);
+printf("The mean is: %3.2f",mean);
 }
  
 
@@ -87,11 +91,35 @@ for(int i=0; i<n_elements; i++)
 printf("\n\n");
 }
 
-unsigned char find_median(unsigned char *array, unsigned int n_elements)
+float find_median(unsigned char *array, unsigned int n_elements)
 {
+int i_aux;
+float f_aux;
+float median;
+i_aux=n_elements/2;
+f_aux=n_elements/2.0;
+if(f_aux-i_aux==0.0)
+{
+/*Even number of elements*/
+median=(*(array+i_aux-1)+*(array+i_aux))/2.0;
 }
-unsigned char find_mean(unsigned char *array, unsigned int n_elements)
+else
 {
+/*Odd number of elements*/
+median=*(array+i_aux);
+}
+return median;
+}
+float find_mean(unsigned char *array, unsigned int n_elements)
+{
+float total, mean;
+for(int i=0;i<n_elements;i++)
+{
+total=total+*array;
+array++;
+}
+mean=total/n_elements;
+return(mean);
 }
 unsigned char find_maximum(unsigned char *array, unsigned int n_elements)
 {

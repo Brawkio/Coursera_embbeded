@@ -40,14 +40,9 @@ void main()
 	     
 unsigned char *eq;
 eq=&test[0];
-print_array(eq,SIZE);
-eq=sort_array(eq, SIZE);
-print_array(eq,SIZE);
-float med, mean;
-med=find_median(eq,SIZE);
-printf("\nThe median is %3.2f\n",med);
-mean=find_mean(eq,SIZE);
-printf("The mean is: %3.2f",mean);
+
+print_statistics(eq,SIZE);
+
 }
  
 
@@ -56,11 +51,19 @@ printf("The mean is: %3.2f",mean);
   /* Statistics and Printing Functions Go Here */
 void print_statistics(unsigned char *array, unsigned int n_elements)
 {
+printf("\n\t|The array of %d elements is:|\n",n_elements);
+print_array(array,n_elements);
+array=sort_array(array, n_elements);
+printf("\n|The previous array of %d elements sorted from maximum to minimum value is:|\n",n_elements);
+print_array(array,n_elements);
+printf("\nThe median (rounded down to the nearest integer) is: %d\n",find_median(array,n_elements));
+printf("\nThe mean (rounded down to the nearest integer) is: %d\n",find_mean(array,n_elements));
+printf("\nThe maximum value from the data is: %d\n",find_maximum(array,n_elements));
+printf("\nThe minimum value from the data is: %d\n",find_minimum(array,n_elements));
 }
 
 void print_array(unsigned char *array, unsigned int n_elements)
 {
-printf("\n\t|The array of %d elements is:|\n",n_elements);
 for(int i=0; i<n_elements; i++)
 {
  printf("__");
@@ -91,11 +94,11 @@ for(int i=0; i<n_elements; i++)
 printf("\n\n");
 }
 
-float find_median(unsigned char *array, unsigned int n_elements)
+unsigned char find_median(unsigned char *array, unsigned int n_elements)
 {
 int i_aux;
 float f_aux;
-float median;
+unsigned char median;
 i_aux=n_elements/2;
 f_aux=n_elements/2.0;
 if(f_aux-i_aux==0.0)
@@ -110,9 +113,10 @@ median=*(array+i_aux);
 }
 return median;
 }
-float find_mean(unsigned char *array, unsigned int n_elements)
+unsigned char find_mean(unsigned char *array, unsigned int n_elements)
 {
-float total, mean;
+unsigned char mean;
+unsigned int total=0, promedy;
 for(int i=0;i<n_elements;i++)
 {
 total=total+*array;
@@ -123,9 +127,33 @@ return(mean);
 }
 unsigned char find_maximum(unsigned char *array, unsigned int n_elements)
 {
+unsigned char max;
+max=*array;
+array++;
+for (int i=1;i<n_elements;i++)
+{
+if(*array>max)
+{
+max=*array;
+}
+array++;
+}
+return (max);
 }
 unsigned char find_minimum(unsigned char *array, unsigned int n_elements)
 {
+unsigned char min;
+min=*array;
+array++;
+for (int i=1;i<n_elements;i++)
+{
+if(*array<min)
+{
+min=*array;
+}
+array++;
+}
+return (min);
 }
 
 unsigned char *sort_array(unsigned char *array, unsigned int n_elements)
@@ -147,6 +175,6 @@ for(i=0; i<n_elements; i++)
 return array;
 }
 
-/* Add other Implementation File Code Here */
+/*Other Implementation File Code Here */
 
 

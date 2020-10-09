@@ -9,12 +9,12 @@
  *
  *****************************************************************************/
 /**
- * @file <stats.c> 
- * @brief <statistics computing of an array of data>
+ * @file stats.c 
+ * @brief Statistics computing of an array of data
  *
- * <From a 40 elements array of unsigned char, the maximum, minimum, mean and median
+ * From a 40 elements array of unsigned char, the maximum, minimum, mean and median
  *  are computed using functions defined in the header file. Finally, a report is
- *  created and displayed "nicely" using the printf function.>
+ *  created and displayed "nicely" using the printf function.
  *
  * @author <Braulio Peraza>
  * @date <06/10/2020> (dd/mm/yyyy)
@@ -50,6 +50,7 @@ print_statistics(eq,SIZE);
 
   /* Statistics and Printing Functions Go Here */
 void print_statistics(unsigned char *array, unsigned int n_elements)
+<<<<<<< HEAD
 {
 printf("\n\t|The array of %d elements is:|\n",n_elements);
 print_array(array,n_elements);
@@ -142,6 +143,100 @@ return (max);
 }
 unsigned char find_minimum(unsigned char *array, unsigned int n_elements)
 {
+=======
+{
+printf("\n\t|The array of %d elements is:|\n",n_elements);
+print_array(array,n_elements);
+array=sort_array(array, n_elements);
+printf("\n|The previous array of %d elements sorted from maximum to minimum value is:|\n",n_elements);
+print_array(array,n_elements);
+printf("\nThe median (rounded down to the nearest integer) is: %d\n",find_median(array,n_elements));
+printf("\nThe mean (rounded down to the nearest integer) is: %d\n",find_mean(array,n_elements));
+printf("\nThe maximum value from the data is: %d\n",find_maximum(array,n_elements));
+printf("\nThe minimum value from the data is: %d\n",find_minimum(array,n_elements));
+}
+
+void print_array(unsigned char *array, unsigned int n_elements)
+{
+for(int i=0; i<n_elements; i++)
+{
+ printf("__");
+}
+printf("\n");
+for(int i=0; i<n_elements; i++)
+{
+ printf("| %d ", *array);
+ array++;
+if(i==(.3*n_elements))
+{
+printf("|\n");
+}
+else if(i==.6*n_elements)
+{
+printf("|\n");
+}
+else if(i==n_elements-1)
+{
+printf("|\n");
+}
+}
+
+for(int i=0; i<n_elements; i++)
+{
+ printf("__");
+}
+printf("\n\n");
+}
+
+unsigned char find_median(unsigned char *array, unsigned int n_elements)
+{
+int i_aux;
+float f_aux;
+unsigned char median;
+i_aux=n_elements/2;
+f_aux=n_elements/2.0;
+if(f_aux-i_aux==0.0)
+{
+/*Even number of elements*/
+median=(*(array+i_aux-1)+*(array+i_aux))/2.0;
+}
+else
+{
+/*Odd number of elements*/
+median=*(array+i_aux);
+}
+return median;
+}
+unsigned char find_mean(unsigned char *array, unsigned int n_elements)
+{
+unsigned char mean;
+unsigned int total=0, promedy;
+for(int i=0;i<n_elements;i++)
+{
+total=total+*array;
+array++;
+}
+mean=total/n_elements;
+return(mean);
+}
+unsigned char find_maximum(unsigned char *array, unsigned int n_elements)
+{
+unsigned char max;
+max=*array;
+array++;
+for (int i=1;i<n_elements;i++)
+{
+if(*array>max)
+{
+max=*array;
+}
+array++;
+}
+return (max);
+}
+unsigned char find_minimum(unsigned char *array, unsigned int n_elements)
+{
+>>>>>>> dev_c1m1
 unsigned char min;
 min=*array;
 array++;
@@ -154,6 +249,7 @@ min=*array;
 array++;
 }
 return (min);
+<<<<<<< HEAD
 }
 
 unsigned char *sort_array(unsigned char *array, unsigned int n_elements)
@@ -176,5 +272,3 @@ return array;
 }
 
 /*Other Implementation File Code Here */
-
-
